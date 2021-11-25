@@ -24,7 +24,8 @@ const Layout = ({ children }) => {
               <Typography className={classes.brand}>amazona</Typography>
             </Link>
           </NextLink>
-          <div className={classes.grow}>
+          <div className={classes.grow}></div>
+          <div>
             <NextLink href="/cart" passHref>
               <Link>Cart</Link>
             </NextLink>

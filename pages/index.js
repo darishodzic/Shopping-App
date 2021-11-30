@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import data from "../utils/data";
 import db from "../utils/db";
-import Product from "../models/Product";
+import Products from "../models/Products";
 
 export default function Home(props) {
   const { products } = props;
@@ -52,12 +52,15 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
+  console.log("------------------------------------");
   await db.connect();
-  const products = await Product.find({}).lean();
+
+  const products = await Products.find({}).lean();
+  console.log("Productssssssss", products);
   await db.disconnect();
   return {
     props: {
-      products,
+      products: products.map(db.convertDocToObj),
     },
   };
 }

@@ -113,7 +113,7 @@ export async function getServerSideProps(context) {
   console.log("sluggggggggggg", slug);
   await db.connect();
   const product = await Product.findOne({ slug }).lean();
-  console.log("Products", product);
+  console.log("Products", db.convertDocToObj(product));
   await db.disconnect();
 
   return {

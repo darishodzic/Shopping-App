@@ -56,7 +56,7 @@ export async function getServerSideProps() {
   await db.connect();
 
   const products = await Products.find({}).lean();
-  console.log("Productssssssss", products);
+  console.log("Productssssssss", products.map(db.convertDocToObj));
   await db.disconnect();
   return {
     props: {

@@ -18,6 +18,8 @@ const productsSchema = new mongoose.Schema(
   }
 );
 
+mongoose.models = {};
+
 const Products =
   mongoose.model.Products || mongoose.model("Products", productsSchema);
 
